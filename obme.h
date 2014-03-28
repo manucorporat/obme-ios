@@ -28,8 +28,6 @@
 #define __OBME__
 
 #include <stdint.h>
-#include <string.h>
-
 
 typedef uint64_t obme_t;
 extern obme_t *_OBME_MASK;
@@ -37,7 +35,7 @@ extern obme_t *_OBME_MASK;
 void obme_init(void);
 void obme_free(void);
 
-#define OBME(value) ((^ typeof(__V__) (typeof(__V__) v) {   \
+#define OBME(__V__) ((^ typeof(__V__) (typeof(__V__) v) {       \
     if(_OBME_MASK == NULL) obme_init();                         \
     union {                                                     \
         typeof(__V__) value;                                    \
@@ -48,6 +46,5 @@ void obme_free(void);
     reinterpret.integer ^= *_OBME_MASK;                         \
     return reinterpret.value;                                   \
 })(__V__))
-
 
 #endif
