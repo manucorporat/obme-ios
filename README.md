@@ -14,6 +14,14 @@ Well, it's a cheating method that access to the physical memory of an app/game s
 3. He performs a new filter and he gets the pointer that changed from 50 to 75, and bingo!!! he knows the address of the score's variable.
 4. Now he can change it.
 
+
+##Install it using CocoaPods
+
+```
+pod "OBME"
+```
+
+
 ##How does OBME work?
 
 1. A 64bits cryptographic pseudorandom number is generated and stored as the "mask".
@@ -26,7 +34,7 @@ return (variable ^ mask);
 
 ##API
 
-```cpp
+```c
 #define OBME(value)  // takes a value of any primitive type.
 ```
 
